@@ -25,4 +25,4 @@ The player's input is captured using the keyPressed() function, which is called 
 Finally, the setup() function is called once at the beginning of the game and is responsible for setting up the canvas and initializing the game elements.
 
 ### P5.js Sketch link
-https://editor.p5js.org/ghosh2003sayantan/sketches/WFY-bhUdV
+https://editor.p5js.org/ghosh2003sayantan/full/WFY-bhUdV
