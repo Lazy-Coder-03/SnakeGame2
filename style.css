@@ -11,7 +11,7 @@ canvas {
   width: 800px;
   height: 800px; /* set width and height to 80% of the viewport width */
   border: 2px solid #000000; /* add a dark border around the canvas */
-  float: left;
+  /*float: left;*/
 }
 
 #score, #high-score {
@@ -27,19 +27,25 @@ canvas {
 }
 
 #controls {
-  float: right;
-  margin-top: 8px;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  align-items: center;
+  justify-content: center;
 }
 
 #controls button {
   display: block;
-  margin-bottom: 8px;
+  margin: 10px;
   background-color: #fff;
-  border : none;
+  border: 2px solid black;
   color: #000;
   cursor: pointer;
   font-size: 16px;
   padding: 8px 16px;
+  height: 50px;
+  width: 100px;
+  border-radius: 5px;
 }
 
 #controls button.toggle-on {
@@ -52,12 +58,8 @@ canvas {
 
 #toggle-grid-button {
   /* style the toggle grid button */
-  position: absolute;
-  bottom: 20%;
-  left: 50%;
-  transform: translate(-50%, 50%);
-  background-color: lightgrey;
-  border: none;
+  background-color: #fff;
+  /*border: 2px solid black;*/
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
