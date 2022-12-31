@@ -1,7 +1,7 @@
 let snake;
 let food;
 let bonusFood;
-let scl = 30;
+let scl = 40;
 let score = 0;
 let highScore = 0;
 let gameOver = false;
@@ -19,7 +19,7 @@ function preload(){
   eatbf=loadSound("sounds/bonuseat.wav")
 }
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(800, 800);
   snake = new Snake();
   food = new Food();
   frameRate(10);
