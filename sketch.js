@@ -1,7 +1,7 @@
 let snake;
 let food;
 let bonusFood;
-let scl = 40;
+let scl = 30;
 let score = 0;
 let highScore = 0;
 let gameOver = false;
@@ -19,7 +19,7 @@ function preload(){
   eatbf=loadSound("sounds/bonuseat.wav")
 }
 function setup() {
-  createCanvas(800, 800);
+  createCanvas(600, 600);
   snake = new Snake();
   food = new Food();
   frameRate(10);
@@ -69,7 +69,7 @@ function draw() {
       line(0,i*scl,width,i*scl)
     }
   }
-  
+  //arc(50, 50, 80, 80, TWO_PI,-PI);
   
   snake.update();
   snake.show();
@@ -296,10 +296,13 @@ class BonusFood {
     rect(this.x, this.y, scl, scl);
     //fill(0)
     let x = constrain(this.expirationTime-millis(),0,this.expirationTime)/1000;
-    fill(255,50,50);
+    fill(255,150,100);
     textSize(12);
-    stroke(0);
+    stroke(0,0,0);
     //ellipse(this.x,this.y,5,5);
-    text(nf(x,1,3),this.x,this.y+20);
+    //rectMode(CORNER);
+    let ang = map(x,0,3,0,TWO_PI);
+    arc(this.x+15, this.y+15, 20, 20, 0,ang,PIE);
+    //text(nf(x,1,3),this.x,this.y+(scl/2));
   }
 }
