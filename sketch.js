@@ -295,8 +295,8 @@ class BonusFood {
     fill(100, 255, 100); // green color
     rect(this.x, this.y, scl, scl);
     //fill(0)
-    let x = constrain(this.expirationTime-millis(),0,this.expirationTime)
-    //textSize(14);
-    text(nf(x/1000,1,3),this.x,this.y+scl+20)
+    let x = constrain(this.expirationTime-millis(),0,this.expirationTime)/1000;
+    textSize(12);
+    text(nf(x,1,3),this.x,this.y+scl+20);
   }
 }
