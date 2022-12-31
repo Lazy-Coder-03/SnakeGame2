@@ -300,6 +300,6 @@ class BonusFood {
     textSize(12);
     stroke(255);
     //ellipse(this.x,this.y,5,5);
-    text(nf(x,1,3),this.x,this.y+15);
+    text(nf(x,1,3),this.x,this.y+20);
   }
 }
