@@ -24,8 +24,10 @@ function setup() {
   food = new Food();
   frameRate(10);
   
-  if(playbgmusic){
+  if (playbgmusic) {
     bgmPlay();
+  } else {
+    bgm.stop();
   }
 }
 function bgmPlay(){
