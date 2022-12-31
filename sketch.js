@@ -6,8 +6,10 @@ let score = 0;
 let highScore = 0;
 let gameOver = false;
 let showGrid=true;
-let foodCount = 0; // count how many normal foods have been eaten
+let foodCount = 0; 
 let bgm;
+let eatf;
+let eatbf;
 let playbgmusic=true;
 let playsound=true;
 
@@ -71,8 +73,8 @@ function draw() {
   snake.show();
   if (snake.eat(food, "normal")) {
     foodCount++;
-    if (foodCount % 1 === 0) {
-      // every 10th food is a bonus food
+    if (foodCount % 5 === 0) {
+      // every 5th food is a bonus food
       bonusFood = new BonusFood();
       food = new Food();
     } else {
