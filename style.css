@@ -1,0 +1,64 @@
+html, body {
+  margin: 10px;
+  padding: 0;
+  background-color: #8D62E9; /* change background color to light peach */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* center the canvas horizontally and vertically */
+}
+
+canvas {
+  width: 80vw;
+  height: 80vw; /* set width and height to 80% of the viewport width */
+  border: 2px solid #000000; /* add a dark border around the canvas */
+  float: left;
+}
+
+#score, #high-score {
+  font-size: 2vw; /* set font size to 2% of the viewport width */
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 1vh; /* set margin to 1% of the viewport height */
+}
+
+#high-score {
+  top: 40px; /* move the high score down below the score */
+}
+
+#controls {
+  float: right;
+  margin-top: 8px;
+}
+
+#controls button {
+  display: block;
+  margin-bottom: 8px;
+  background-color: #fff;
+  border : none;
+  color: #000;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px 16px;
+}
+
+#controls button.toggle-on {
+  background-color: rgb(216,63,95);
+}
+
+#controls button:not(.toggle-on) {
+  background-color: rgb(71,251,31);
+}
+
+#toggle-grid-button {
+  /* style the toggle grid button */
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  background-color: lightgrey;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
