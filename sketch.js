@@ -296,9 +296,9 @@ class BonusFood {
     rect(this.x, this.y, scl, scl);
     //fill(0)
     let x = constrain(this.expirationTime-millis(),0,this.expirationTime)/1000;
-    fill(0);
+    fill(255,50,50);
     textSize(12);
-    stroke(255);
+    stroke(0);
     //ellipse(this.x,this.y,5,5);
     text(nf(x,1,3),this.x,this.y+20);
   }
