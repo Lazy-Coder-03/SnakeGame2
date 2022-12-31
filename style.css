@@ -53,7 +53,7 @@ canvas {
 #toggle-grid-button {
   /* style the toggle grid button */
   position: absolute;
-  bottom: 50px;
+  bottom: 20%;
   left: 50%;
   transform: translate(-50%, 50%);
   background-color: lightgrey;
