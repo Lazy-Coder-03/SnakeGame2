@@ -178,16 +178,16 @@ class Snake {
           this.tot = Math.max(0, this.tot - 10);
           score += 100;
           if(playsound){
-          eatbf.setVolume(0.3)
-          eatbf.play()
+            eatbf.setVolume(0.3)
+            eatbf.play()
           }
         } else {
           //console.log(r,0.01+j);
           this.tot = Math.max(0, this.tot - 2); // decrease size by 5, but don't allow size to become negative
           score += 10;
           if(playsound){
-          eatbf.setVolume(0.3)
-          eatbf.play()
+            eatbf.setVolume(0.3)
+            eatbf.play()
           }
         }
       }
@@ -296,6 +296,7 @@ class BonusFood {
     rect(this.x, this.y, scl, scl);
     //fill(0)
     let x = constrain(this.expirationTime-millis(),0,this.expirationTime)
-    text(nf(x/1000,1,3),this.x,this.y+scl*1.5)
+    textSize(14);
+    text(nf(x/1000,1,3),this.x,this.y+scl+20)
   }
 }
