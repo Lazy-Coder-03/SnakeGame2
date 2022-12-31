@@ -296,6 +296,6 @@ class BonusFood {
     rect(this.x, this.y, scl, scl);
     //fill(0)
     let x = constrain(this.expirationTime-millis(),0,this.expirationTime)
-    text(nf(x/1000,1,3),this.x,this.y+scl+20)
+    text(nf(x/1000,1,3),this.x,this.y+scl*1.5)
   }
 }
