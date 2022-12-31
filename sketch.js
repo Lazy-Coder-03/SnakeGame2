@@ -234,9 +234,9 @@ class Snake {
     fill(255);
     stroke(0)
     for (let i = 0; i < this.tail.length; i++) {
-      rect(this.tail[i].x, this.tail[i].y, scl, scl);
+      rect(this.tail[i].x, this.tail[i].y, scl, scl,8);
     }
-    rect(this.x, this.y, scl, scl);
+    rect(this.x, this.y, scl, scl,8);
   }
 }
 
@@ -265,13 +265,14 @@ class Food {
 
   show() {
     stroke(0)
-    fill(255, 50, 100);
-    rect(this.x, this.y, scl, scl);
+    fill("orange");
+    rect(this.x, this.y, scl, scl,8);
   }
 }
 
 class BonusFood {
   constructor() {
+    this.lifespan=4000;
     this.x = floor(random(width / scl)) * scl;
     this.y = floor(random(height / scl)) * scl;
     for (let i = snake.tail.length-1; i >=0 ;i--) {
@@ -280,7 +281,7 @@ class BonusFood {
         this.y = floor(random(height / scl)) * scl;
       }
     }
-    this.expirationTime = millis() + 3000; // bonus food lasts for 7 seconds
+    this.expirationTime = millis() + this.lifespan; // bonus food lasts for 4 seconds
   }
 
   update() {
@@ -292,16 +293,16 @@ class BonusFood {
 
   show() {
     stroke(0)
-    fill(100, 255, 100); // green color
-    rect(this.x, this.y, scl, scl);
+    fill("rgb(58,206,58)"); // green color
+    rect(this.x, this.y, scl, scl,8);
     //fill(0)
     let x = constrain(this.expirationTime-millis(),0,this.expirationTime)/1000;
-    fill(255,150,100);
+    fill("red");
     textSize(12);
     stroke(0,0,0);
     //ellipse(this.x,this.y,5,5);
     //rectMode(CORNER);
-    let ang = map(x,0,3,0,TWO_PI);
+    let ang = map(x,0,this.lifespan/1000,0,TWO_PI);
     arc(this.x+15, this.y+15, 20, 20, 0,ang,PIE);
     //text(nf(x,1,3),this.x,this.y+(scl/2));
   }
