@@ -44,7 +44,7 @@ function setup() {
   snake = new Snake();
   food = new Food();
   frameRate(10);
-  console.log(sounds);
+  //console.log(sounds);
   if (playbgmusic) {
     bgmPlay();
   } else {
