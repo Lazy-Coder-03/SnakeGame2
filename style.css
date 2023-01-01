@@ -8,8 +8,8 @@ html, body {
 }
 
 canvas {
-  width: 800px;
-  height: 800px; /* set width and height to 80% of the viewport width */
+  width: 600px;
+  height: 600px; /* set width and height to 80% of the viewport width */
   border: 2px solid #000000; /* add a dark border around the canvas */
   /*float: left;*/
 }
