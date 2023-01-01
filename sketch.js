@@ -1,7 +1,7 @@
 let snake;
 let food;
 let bonusFood;
-let scl = 40;
+let scl = 30;
 let score = 0;
 let highScore = 0;
 let gameOver = false;
