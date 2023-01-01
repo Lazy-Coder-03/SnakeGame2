@@ -1,7 +1,7 @@
 let snake;
 let food;
 let bonusFood;
-let scl = 30;
+let scl = 40;
 let score = 0;
 let highScore = 0;
 let gameOver = false;
@@ -13,7 +13,7 @@ let eatbf;
 let sounds=[];
 let playbgmusic=true;
 let playsound=true;
-let speedSlider;
+//let speedSlider;
 
 function preload(){
   bgm=loadSound("sounds/bgmusic.wav");
