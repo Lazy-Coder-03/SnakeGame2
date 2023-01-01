@@ -1,7 +1,7 @@
 let snake;
 let food;
 let bonusFood;
-let scl = 30;
+let scl = 40;
 let score = 0;
 let highScore = 0;
 let gameOver = false;
@@ -10,30 +10,58 @@ let foodCount = 0;
 let bgm;
 let eatf;
 let eatbf;
+let sounds=[];
 let playbgmusic=true;
 let playsound=true;
+let speedSlider;
 
 function preload(){
-  bgm=loadSound("sounds/bgmusic.wav")
-  eatf=loadSound("sounds/eat.wav")
-  eatbf=loadSound("sounds/bonuseat.wav")
+  bgm=loadSound("sounds/bgmusic.wav");
+  eatf=loadSound("sounds/eat.wav");
+  eatbf=loadSound("sounds/bonuseat.wav");
+  sounds.push(loadSound("sounds/a.wav"));
+  sounds.push(loadSound("sounds/b.wav"));
+  sounds.push(loadSound("sounds/c.wav"));
+  sounds.push(loadSound("sounds/d.wav"));
+  sounds.push(loadSound("sounds/e.wav"));
+  sounds.push(loadSound("sounds/f.wav"));
+  sounds.push(loadSound("sounds/g.wav"));
+  sounds.push(loadSound("sounds/h.wav"));
+  sounds.push(loadSound("sounds/i.wav"));
+  sounds.push(loadSound("sounds/j.wav"));
+  sounds.push(loadSound("sounds/k.wav"));
+  sounds.push(loadSound("sounds/l.wav"));
+  sounds.push(loadSound("sounds/m.wav"));
+  sounds.push(loadSound("sounds/n.wav"));
+
 }
+
+
+
 function setup() {
-  createCanvas(600, 600);
+
+  createCanvas(scl*20, scl*20);
   snake = new Snake();
   food = new Food();
   frameRate(10);
-  
+  console.log(sounds);
   if (playbgmusic) {
     bgmPlay();
   } else {
     bgm.stop();
   }
 }
+
+function eatfsound(){
+  let ind=foodCount%sounds.length;
+  sounds[ind].setVolume(0.3);
+  sounds[ind].play();
+}
+
 function bgmPlay(){
   bgm.setVolume(0.1)
-  bgm.play()
-  bgm.loop()
+  bgm.play();
+  bgm.loop();
   
 }
 function updateHighScore() {
@@ -43,6 +71,10 @@ function updateHighScore() {
   }
   const highScoreElement = document.getElementById("high-score");
   highScoreElement.innerHTML = `High Score: ${highScore}`;
+}
+
+function updateFrameRate() {
+  frameRate(document.getElementById('fps-slider').value);
 }
 
 function loadHighScore() {
@@ -57,6 +89,7 @@ function updateScore() {
 function draw() {
   background(51);
   //grid
+
   if(showGrid){
     for(let i=1;i<width;i+=1){
       strokeWeight(0.5)
@@ -124,7 +157,6 @@ const toggleGridButton = document.getElementById("toggle-grid-button");
 const toggleMusicButton = document.getElementById("music-toggle-button");
 const toggleSoundButton = document.getElementById("sound-toggle-button");
 
-
 toggleGridButton.addEventListener("click", () => {
   showGrid = !showGrid;
   toggleGridButton.classList.toggle("toggle-on");
@@ -165,8 +197,9 @@ class Snake {
       if (type === "normal") {
         this.tot++;
         if(playsound){
-          eatf.setVolume(0.3)
-          eatf.play()
+          //eatf.setVolume(0.3)
+          //eatf.play()
+          eatfsound()
           }
         this.tail.push(
           createVector(floor(this.x / scl) * scl, floor(this.y / scl) * scl)
@@ -303,7 +336,7 @@ class BonusFood {
     //ellipse(this.x,this.y,5,5);
     //rectMode(CORNER);
     let ang = map(x,0,this.lifespan/1000,0,TWO_PI);
-    arc(this.x+15, this.y+15, 20, 20, 0,ang,PIE);
+    arc(this.x+(scl/2), this.y+(scl/2), (0.75*scl), (0.75*scl), 0,ang,PIE);
     //text(nf(x,1,3),this.x,this.y+(scl/2));
   }
 }
