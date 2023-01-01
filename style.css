@@ -1,29 +1,29 @@
 html, body {
   margin: 10px;
   padding: 0;
-  background-color: #8D62E9; /* change background color to light peach */
+  background-color: #8D62E9; 
   display: flex;
   align-items: center;
-  justify-content: center; /* center the canvas horizontally and vertically */
+  justify-content: center; 
 }
 
 canvas {
   width: 800px;
-  height: 800px; /* set width and height to 80% of the viewport width */
-  border: 2px solid #000000; /* add a dark border around the canvas */
+  height: 800px; 
+  border: 2px solid #000000; 
   /*float: left;*/
 }
 
 #score, #high-score {
-  font-size: 2vw; /* set font size to 2% of the viewport width */
+  font-size: 2vw; 
   position: absolute;
   right: 0;
   top: 0;
-  margin: 1vh; /* set margin to 1% of the viewport height */
+  margin: 1vh; 
 }
 
 #high-score {
-  top: 40px; /* move the high score down below the score */
+  top: 40px; 
 }
 
 #controls {
@@ -57,9 +57,7 @@ canvas {
 }
 
 #toggle-grid-button {
-  /* style the toggle grid button */
   background-color: #fff;
-  /*border: 2px solid black;*/
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
