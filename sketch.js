@@ -13,6 +13,7 @@ let eatbf;
 let sounds=[];
 let playbgmusic=true;
 let playsound=true;
+let wall=true;
 //let speedSlider;
 
 function preload(){
@@ -86,6 +87,36 @@ function updateScore() {
   scoreElement.innerHTML = `Score: ${score}`;
 }
 
+const toggleGridButton = document.getElementById("toggle-grid-button");
+const toggleMusicButton = document.getElementById("music-toggle-button");
+const toggleSoundButton = document.getElementById("sound-toggle-button");
+const toggleWallButton = document.getElementById("toggle-wall-button");
+
+toggleGridButton.addEventListener("click", () => {
+  showGrid = !showGrid;
+  toggleGridButton.classList.toggle("toggle-on");
+});
+
+toggleMusicButton.addEventListener("click", () => {
+  playbgmusic = !playbgmusic;
+  toggleMusicButton.classList.toggle("toggle-on");
+  if (playbgmusic) {
+    bgmPlay();
+  } else {
+    bgm.stop();
+  }
+});
+
+toggleSoundButton.addEventListener("click", () => {
+  toggleSoundButton.classList.toggle("toggle-on");
+  playsound = !playsound;
+});
+
+toggleWallButton.addEventListener("click", () => {
+  toggleWallButton.classList.toggle("toggle-on");
+  wall = !wall;
+});
+
 function draw() {
   background(51);
   //grid
@@ -153,29 +184,6 @@ function keyPressed() {
     snake.dir(1, 0);
   }
 }
-const toggleGridButton = document.getElementById("toggle-grid-button");
-const toggleMusicButton = document.getElementById("music-toggle-button");
-const toggleSoundButton = document.getElementById("sound-toggle-button");
-
-toggleGridButton.addEventListener("click", () => {
-  showGrid = !showGrid;
-  toggleGridButton.classList.toggle("toggle-on");
-});
-
-toggleMusicButton.addEventListener("click", () => {
-  playbgmusic = !playbgmusic;
-  toggleMusicButton.classList.toggle("toggle-on");
-  if (playbgmusic) {
-    bgmPlay();
-  } else {
-    bgm.stop();
-  }
-});
-
-toggleSoundButton.addEventListener("click", () => {
-  toggleSoundButton.classList.toggle("toggle-on");
-  playsound = !playsound;
-});
 
 class Snake {
   constructor() {
@@ -241,7 +249,7 @@ class Snake {
     this.pv = createVector(x, y);
   }
 
-  update() {
+   update() {
     for (let i = 0; i < this.tail.length - 1; i++) {
       this.tail[i] = this.tail[i + 1];
     }
@@ -249,10 +257,19 @@ class Snake {
     if (this.tail.length > this.tot) {
       this.tail.splice(0, this.tail.length - this.tot);
     }
-    this.x = (this.x + this.xv * scl) % width;
-    if (this.x < 0) this.x = width - scl;
-    this.y = (this.y + this.yv * scl) % height;
-    if (this.y < 0) this.y = height - scl;
+
+    if(wall){
+      this.x += this.xv * scl;
+      this.y += this.yv * scl;
+      if (this.x < 0 || this.x > width - scl || this.y < 0 || this.y > height - scl) {
+        gameOver = true;
+      }
+    }
+    else{
+      this.x = (this.x + this.xv * scl) % width;
+      this.y = (this.y + this.yv * scl) % height;
+    }
+
     if (this.xv !== 0 && this.yv !== 0) {
       this.xv = 0;
       this.yv = 0;
